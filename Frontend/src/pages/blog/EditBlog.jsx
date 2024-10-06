@@ -1,13 +1,13 @@
 import Layout from "../../components/layout/Layout"
 import Form from "./components/form/Form"
 
-const AddBlog = () => {
+const EditBlog = () => {
   return (
     <Layout>
-      <Form type = 'Create' />
-
+        <Form type = 'Edit' />
     </Layout>
+    
   )
 }
 
-export default AddBlog
+export default EditBlog
