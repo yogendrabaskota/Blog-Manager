@@ -1,10 +1,12 @@
 const express = require("express")
+
+require("dotenv").config()
 const User = require("./model/userModel")
 const { connectDatabase } = require("./database/database")
 const app = express()
-require("dotenv").config()
+
 const bcrypt = require("bcryptjs") 
-const { registerUser } = require("./controller/authController")
+const { registerUser, loginUser } = require("./controller/authController")
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
@@ -17,7 +19,8 @@ app.get("/",(req,res)=>{
     })
 })
 
-app.post("/register",registerUser);
+app.post("/register",registerUser)
+app.post("/login",loginUser)
 
 
 

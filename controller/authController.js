@@ -1,4 +1,7 @@
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const { find } = require("../model/userModel");
+const User = require("../model/userModel");
+const jwt = require("jsonwebtoken")
 
 exports.registerUser = (async (req, res) => {
         const { email, username, password } = req.body;
@@ -15,9 +18,6 @@ exports.registerUser = (async (req, res) => {
             })
         }
       
-    
-    
-        
             await User.create({
                 userEmail: email,
                 userName: username,
@@ -35,3 +35,40 @@ exports.registerUser = (async (req, res) => {
     }
 
 )
+
+exports.loginUser =( async(req,res)=>{
+    const {email, password} = req.body
+    if(!email || !password){
+        return res.status(400).json({
+            message : "please provide email and password"
+        })
+    }
+    
+    const userFound = await User.find({userEmail:email})
+    if(userFound.length == 0){
+        return res.status(400).json({
+            message : "user with this email is not registered"
+        })
+    }
+    const isMatched = bcrypt.compareSync(password, userFound[0].userPassword)
+    if(!isMatched){
+        return res.status(200).json({
+            message: "Password is incorrect, please provide a valid password"
+        })
+    }
+    
+    if(isMatched){
+        const token = jwt.sign({id: userFound[0]._id}, process.env.SECRET_KEY,{
+            expiresIn : '30d'
+        })
+        res.status(200).json({
+            message : "user logged in  successfully",
+            token
+            
+        })
+    }
+    
+
+
+
+})
