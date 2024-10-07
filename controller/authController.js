@@ -11,7 +11,7 @@ exports.registerUser = (async (req, res) => {
                 message : "please provide email, username and password"
             })
         }
-        const userFound = await User.find({userEmail : email})
+        const userFound = await User.find({useremail : email})
         if(userFound.length > 0){
             return  res.status(400).json({
                 message : "User with this email already exist. please use unique email "
@@ -19,9 +19,9 @@ exports.registerUser = (async (req, res) => {
         }
       
             await User.create({
-                userEmail: email,
-                userName: username,
-                userPassword: bcrypt.hashSync(password,10)
+                useremail: email,
+                username: username,
+                userpassword: bcrypt.hashSync(password,10)
     
             });
             return res.status(201).json({
@@ -44,13 +44,13 @@ exports.loginUser =( async(req,res)=>{
         })
     }
     
-    const userFound = await User.find({userEmail:email})
+    const userFound = await User.find({useremail:email})
     if(userFound.length == 0){
         return res.status(400).json({
             message : "user with this email is not registered"
         })
     }
-    const isMatched = bcrypt.compareSync(password, userFound[0].userPassword)
+    const isMatched = bcrypt.compareSync(password, userFound[0].userpassword)
     if(!isMatched){
         return res.status(200).json({
             message: "Password is incorrect, please provide a valid password"
