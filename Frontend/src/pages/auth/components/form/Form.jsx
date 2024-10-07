@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable react/prop-types */
+// /* eslint-disable no-undef */
+// /* eslint-disable react/no-unknown-property */
+import { useState } from "react";
 
-const Form = ({type}) => {
+const Form = ({type,onSubmit}) => {
   const [data,setData] = useState({
     email : '',
     username : '',
@@ -11,6 +11,8 @@ const Form = ({type}) => {
   })
   const handleChange=(e)=>{
     const {name,value} = e.target
+    console.log(name,value)
+    
     setData({
       ...data,
       [name] : value
@@ -19,6 +21,7 @@ const Form = ({type}) => {
   }
   const handleSubmit =(e)=>{
     e.preventDefault()
+    onSubmit(data)
 
   }
   return (
