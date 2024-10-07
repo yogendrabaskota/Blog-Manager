@@ -6,16 +6,15 @@ const Register = () => {
   const navigate = useNavigate()
   const handleRegister=async(data)=> {
     try {
-      const response = await axios.post("localhost:3000/register",data)
+      const response = await axios.post("http://localhost:3000/register",data)
     if(response.status === 201) {
       navigate('/login')
 
-    }else{
-      alert("error")
     }
       
     } catch (error) {
       alert(error?.response?.data?.message)
+      //alert("ok this is error")
       
     }
 

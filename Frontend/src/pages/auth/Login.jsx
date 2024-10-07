@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate()
   const handleLogin =async(data)=> {
     try {
-      const response = await axios.post("localhost:3000/login",data)
+      const response = await axios.post("http://localhost:3000/login",data)
     if(response.status === 200) {
       navigate('/')
 
