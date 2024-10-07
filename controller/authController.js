@@ -52,7 +52,7 @@ exports.loginUser =( async(req,res)=>{
     }
     const isMatched = bcrypt.compareSync(password, userFound[0].userpassword)
     if(!isMatched){
-        return res.status(200).json({
+        return res.status(400).json({
             message: "Password is incorrect, please provide a valid password"
         })
     }
