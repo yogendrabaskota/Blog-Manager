@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom"
 import Form from "./components/form/Form"
 import axios from "axios"
+import { baseurl } from "../../../CONFIG.JS"
 
 
 const Login = () => {
@@ -9,9 +10,10 @@ const Login = () => {
     const navigate = useNavigate()
   const handleLogin =async(data)=> {
     try {
-      const response = await axios.post("http://localhost:3000/login",data)
+      const response = await axios.post(`${baseurl}/login`,data)
     if(response.status === 200) {
-      navigate('/')
+      localStorage.setItem('token',response.data.token)
+      navigate('/')  
 
     }else{
       alert("error")

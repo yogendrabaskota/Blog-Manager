@@ -42,6 +42,7 @@ const Form = ({ type, onSubmit }) => {
                       className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                       placeholder="Email address"
                       onChange={handleChange}
+                      required
                     />
                     <label
                       htmlFor="email"

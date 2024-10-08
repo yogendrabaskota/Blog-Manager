@@ -1,38 +1,73 @@
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
-const Form = ({type}) => {
+const Form = ({type, onSubmit}) => {
+  const [data,setData] = useState({
+    title : '',
+    subtitle : '',
+    description : '',
+    category : '',
+    image : ''
+
+  })
+  const handleChange =(e)=> {
+    const{name,value} = e.target
+    setData({
+      ...data,
+      [name] : name ==="image" ? e.target.files[0] : value
+
+    })  
+  }
+    const handleSubmit = (e) =>{
+      e.preventDefault()
+      onSubmit(data)
+    
+
+  }
+
+
+
+
+
+
+
     return (
       <div className="flex justify-center items-center w-screen h-screen bg-white">
        
         <div className="container mx-auto my-3 px-4 lg:px-20">
+          
+
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
               <h1 className="font-bold uppercase text-5xl">{type} <br /> Blog</h1>
             </div>
+
+            <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
-                placeholder="Title"
+                placeholder="Title" name="title" onChange={handleChange}  required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
-                placeholder="Subtitle"
+                placeholder="Subtitle" name="subtitle" onChange={handleChange} required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="file"
+                type="file" name="image" onChange={handleChange} required
                 
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="number"
-                placeholder="Category"
+                placeholder="Category" name="category" onChange={handleChange} required
               />
             </div>
             <div className="my-4">
               <textarea
-                placeholder="Description"
+                placeholder="Description" name="description" onChange={handleChange} required
                 className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               ></textarea>
             </div>
@@ -43,7 +78,11 @@ const Form = ({type}) => {
                 Submit
               </button>
             </div>
+            </form>
           </div>
+
+
+          
   
           
               </div>
