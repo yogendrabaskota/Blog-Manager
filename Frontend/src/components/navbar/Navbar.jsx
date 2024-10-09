@@ -51,25 +51,25 @@ const Navbar = () => {
         <div className="flex items-center space-x-8">
           <Link
             to="/"
-            className="text-gray-900 hover:text-blue-700 dark:text-white md:dark:text-blue-500"
+            className="text-gray-900 hover:text-blue-700 dark:text-white"
           >
             Home
           </Link>
           <Link
             to="/blog/add"
-            className="text-gray-900 hover:text-blue-700 dark:text-white md:dark:text-blue-500"
+            className="text-gray-900 hover:text-blue-700 dark:text-white "
           >
             Create Blog
           </Link>
           <Link
             to="/register"
-            className="text-gray-900 hover:text-blue-700 dark:text-white md:dark:text-blue-500"
+            className="text-gray-900 hover:text-blue-700 dark:text-white "
           >
             Register
           </Link>
           <Link
             to="/login"
-            className="text-gray-900 hover:text-blue-700 dark:text-white md:dark:text-blue-500"
+            className="text-gray-900 hover:text-blue-700 dark:text-white "
           >
             Login
           </Link>
