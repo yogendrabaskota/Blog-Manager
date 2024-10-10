@@ -31,7 +31,7 @@ To run this,
 - Connect the database with MongoDB
 - Open command prompt and run following command 
 
-### TO install all the required dependencies of project :
+### To install all the required dependencies of project :
 
 ```https
   cd frontend
@@ -41,12 +41,10 @@ To run this,
 ```https 
   npm install
 ``` 
- ### TO run the project :
+ ### To run the project :
 ```https 
   npm run dev
 ``` 
-
-### To get API documentation, click [Here](https://documenter.getpostman.com/view/33322053/2sAXxPAYHJ)
 
 
 ## Output :
@@ -61,6 +59,10 @@ To run this,
 
   ### Create Blog form
   <img src="./output/createblog.png" />
+
+
+
+### To get API documentation, click [Here](https://documenter.getpostman.com/view/33322053/2sAXxPAYHJ)
 
 
 ## Feedback
