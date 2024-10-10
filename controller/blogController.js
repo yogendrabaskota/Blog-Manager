@@ -17,15 +17,15 @@ class BlogController{
             });
         }
         let fileName;
-        console.log(req.file)
-        // Check if the file is present in the request
+        //console.log(req.file)
+        //Check if the file is present in the request
         if (!req.file) {
             return res.status(400).json({
                 message: "Please Insert the Image"
             });
         }
     
-        // Set fileName to the uploaded image's URL
+        //Set fileName to the uploaded image's URL
         fileName = process.env.BASE_URL + req.file.filename;
     
         // Create the blog entry in the database
