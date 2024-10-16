@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react';
 import Layout from '../../components/layout/Layout';
 import Card from './components/card/Card';
@@ -9,9 +10,9 @@ const Home = () => {
   const [blogs,setBlogs] = useState([])
   const fetchBlog =async()=>{
     const response = await axios.get(`${baseurl}/blog`)
-    if(response.status ===200){
+    if(response.status === 200){
       setBlogs(response.data.data)
-      console.log(response)
+      //console.log(response)
     }
   }
   useEffect(()=>{
