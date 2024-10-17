@@ -4,6 +4,7 @@ import Layout from '../../components/layout/Layout'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { baseurl } from '../../../CONFIG.JS'
+import EditBlog from './EditBlog'
 
 //import { baseurl } from '../../../config'
 
@@ -11,6 +12,7 @@ import { baseurl } from '../../../CONFIG.JS'
 const SingleBlog = () => {
 
   const { id } = useParams()
+  //console.log("this ", id)
   const [blog,setBlog] = useState({})
   const navigate = useNavigate()
 
@@ -65,9 +67,10 @@ const SingleBlog = () => {
               />
             </div>
             <div className="flex -mx-2 mb-4">
-              <div className="w-1/2 px-2">
-                <Link to="/blog/edit">
-                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+              <div className="w-1/2 px-2">    
+                <Link to={`/blog/edit/${id}`}>
+                
+                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700" onClick={EditBlog}>
                   Edit 
                 </button>
                 </Link>
