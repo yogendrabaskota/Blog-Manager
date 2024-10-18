@@ -1,7 +1,7 @@
 import axios from "axios"
 import Layout from "../../components/layout/Layout"
 import Form from "./components/form/Form"
-import { baseurl } from "../../../CONFIG.JS"
+import { baseurl } from "../../../config.js"
 import { useNavigate } from "react-router-dom"
 
 

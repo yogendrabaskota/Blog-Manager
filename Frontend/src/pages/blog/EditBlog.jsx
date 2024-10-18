@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import Form from "./components/form/Form";
 import { useNavigate, useParams } from "react-router-dom";
-import { baseurl } from "../../../CONFIG.JS";
+import { baseurl } from "../../../config.js";
 import axios from "axios";
 
 const EditBlog = () => {

@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import Layout from '../../components/layout/Layout'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { baseurl } from '../../../CONFIG.JS'
+import { baseurl } from '../../../config.js'
 import EditBlog from './EditBlog'
 
 //import { baseurl } from '../../../config'
