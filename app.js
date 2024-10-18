@@ -11,8 +11,6 @@ app.use(cors({
 require("dotenv").config()
 const User = require("./model/userModel")
 const { connectDatabase } = require("./database/database")
-//const app = express()
-
 const bcrypt = require("bcryptjs") 
 const { registerUser, loginUser } = require("./controller/userController")
 
@@ -30,11 +28,6 @@ app.get("/",(req,res)=>{
 app.use("/api/user",userRoute)
 app.use("/api/user",blogRoute)
 app.use(express.static('uploads'))
-
-
-
-
-
 
 
 const PORT = process.env.PORT 

@@ -1,4 +1,3 @@
-//const userController = require("../controller/userController")
 const blogController = require("../controller/blogController")
 const isAuthenticated = require("../middleware/isAuthenticated")
 const catchAsync = require("../services/catchAsync")
